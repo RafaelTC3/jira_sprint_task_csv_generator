@@ -7,6 +7,7 @@ The motivation beihind the creation of this application is to help those who nee
 
 As already mentioned, the template file will looke like this:
 
+```
 //* Represents History 
 //-- Represents subtasks
 //| Represents the estimated hours to resolve the task
@@ -17,5 +18,10 @@ As already mentioned, the template file will looke like this:
 	+ comment for the task
 	+ Can have multiple comments
 	+ comment with example on ho to write 'specific information' without double quotes
+```
 
+### Incomming updates
+* Docker image to run in container
+* Pass args to generate template to be used
+* Configuration to upload to cloud (Google Drive, Azure etc...)
 
