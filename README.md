@@ -62,10 +62,17 @@ docker cp <container name>:<path in the container> <path in your local machine>
 Exit container wrinting exit in terminal.
 
 ## Second mode to use the container
+### Run the container directely entering the command:
+
+```
+docker run -v <your file path>:<path in the container>\
+ -itd --rm --name <container name> <docker image:version>\
+  <file path inside container> <sprint id> <squad>
+```
+The command will run the container, process file and remo the container after file processing.
 
 
 ### Incomming updates
-* Docker image to run in container
 * Pass args to generate template to be used
 * Configuration to upload to cloud (Google Drive, Azure etc...)
 
