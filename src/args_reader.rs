@@ -1,9 +1,9 @@
 pub mod args_reader{
 
     pub fn read_args(args: &[String]) -> (&str, &str, &str) {
-        let file_path: &String = &args[1];
-        let sprint_id: &String = &args[2];
-        let squad: &String = &args[3];
+        let file_path: &String = &args[2];
+        let sprint_id: &String = &args[3];
+        let squad: &String = &args[4];
 
         (file_path, sprint_id, squad)
     }
