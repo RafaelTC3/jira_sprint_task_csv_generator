@@ -17,6 +17,7 @@ pub mod args_reader{
         fn read_args_test(){
             let mut args: Vec<String> = Vec::new();
             args.push("application Name".parse().unwrap());
+            args.push("action".parse().unwrap());
             args.push("test".parse().unwrap());
             args.push("1".parse().unwrap());
             args.push("sq".parse().unwrap());
