@@ -21,6 +21,12 @@ As already mentioned, the template file will looke like this:
 ```
 # Docker Image and Container
 
+There is an arguments list to be passed:
+* First argument: generate to generate a template file or convert to convert a file written with the format above to csv
+* Second argument: file path inside container
+* Third argument: sprint id
+* Fourth: squad name
+
 ## First mode to use the container
 ### Step 1 
 Enter in project folder and enter command:
@@ -30,7 +36,7 @@ docker build -t <name you want to call the image> .
 
 After creating the image enter the following command:
 ```
-docker run -it --name <container name> -d <image name:version>
+docker run -it --entrypoint /bin/bash --name <container name> -d <image name:version>
 ```
 
 Now you have a running container.
@@ -49,7 +55,7 @@ docker exec -it <container name> bash
 ### Step 4
 Execute the binary passing the arguments:
 ```
-<path to binary> <file path> <sprint id> <squad>
+<path to binary> <arguments list>
 ```
 
 ### Step 5
@@ -67,12 +73,10 @@ Exit container wrinting exit in terminal.
 ```
 docker run -v <your file path>:<path in the container>\
  -itd --rm --name <container name> <docker image:version>\
-  <file path inside container> <sprint id> <squad>
+  <arguments list>
 ```
 The command will run the container, process file and remo the container after file processing.
 
-
 ### Incomming updates
-* Pass args to generate template to be used
 * Configuration to upload to cloud (Google Drive, Azure etc...)
 

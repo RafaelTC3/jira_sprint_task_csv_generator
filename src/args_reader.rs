@@ -1,9 +1,9 @@
 pub mod args_reader{
 
     pub fn read_args(args: &[String]) -> (&str, &str, &str) {
-        let file_path: &String = &args[1];
-        let sprint_id: &String = &args[2];
-        let squad: &String = &args[3];
+        let file_path: &String = &args[2];
+        let sprint_id: &String = &args[3];
+        let squad: &String = &args[4];
 
         (file_path, sprint_id, squad)
     }
@@ -17,6 +17,7 @@ pub mod args_reader{
         fn read_args_test(){
             let mut args: Vec<String> = Vec::new();
             args.push("application Name".parse().unwrap());
+            args.push("action".parse().unwrap());
             args.push("test".parse().unwrap());
             args.push("1".parse().unwrap());
             args.push("sq".parse().unwrap());

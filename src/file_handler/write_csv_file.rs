@@ -3,7 +3,6 @@ pub mod write_csv_file{
 
     pub fn get_template_values(content_vector: &String, sprint_id: &str, squad: &str) -> Vec<String>{
         let mut processed_content:Vec<String> = Vec::new();
-        let mut item: String = String::new();
         let mut histories: Vec<&str> = content_vector.split("*").collect();
         histories.remove(0);
 
@@ -21,7 +20,7 @@ pub mod write_csv_file{
                 description_vec.remove(0);
                 let desc: String = format!("{:?}",description_vec.clone().into_iter().map(|i| i.to_string()).collect::<Vec<_>>()).replace("\"","").replace("[","").replace("]","");
 
-                item = format!("{},{},\"{}\",{},{},{},{},{}",issue_type,hour_vec.first().unwrap(),desc,hour_vec.last().unwrap() ,hour, sprint_id, squad ,parent);
+                let item: String = format!("{},{},\"{}\",{},{},{},{},{}",issue_type,hour_vec.first().unwrap(),desc,hour_vec.last().unwrap() ,hour, sprint_id, squad ,parent);
                 processed_content.push((*item).parse().unwrap());
             }
         }
