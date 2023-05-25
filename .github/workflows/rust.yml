@@ -26,4 +26,5 @@ jobs:
         RUSTFLAGS: -Cinstrument-coverage
       run: cargo test --verbose
     - name: Generate coverage data
-      run: ls -a
+      uses: actions-rs/grcov@v0.1
+
