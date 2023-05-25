@@ -2,7 +2,7 @@ name: Rust
 
 on:
   push:
-    branches: [ "main","develop" ]
+    branches: ["feature/implement-github-actions" ]
   pull_request:
     branches: [ "main","develop" ]
 
@@ -17,6 +17,13 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build
+      env:
+        RUSTFLAGS: -Cinstrument-coverage
       run: cargo build --verbose
     - name: Run tests
+      env:
+        LLVM_PROFILE_FILE: code_coverage-%p-%m.profraw
+        RUSTFLAGS: -Cinstrument-coverage
       run: cargo test --verbose
+    - name: Generate coverage data
+      run: grcov . --binary-path ./target/debug/ -s . -t html --branch --ignore-not-existing -o ./coverage/
