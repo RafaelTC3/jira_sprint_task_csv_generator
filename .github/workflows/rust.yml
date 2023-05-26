@@ -21,8 +21,12 @@ jobs:
       env:
         RUSTFLAGS: -Cinstrument-coverage
     - name: Run tests
-      run: RUSTFLAGS='-Cinstrument-coverage' LLVM_PROFILE_FILE='cargo-test-%p-%m.profraw' cargo test
+      run: cargo test --verbose
+      env:
+        RUSTFLAGS: '-Cinstrument-coverage'
+        LLVM_PROFILE_FILE: 'cargo-test-%p-%m.profraw'
     - name: Generate coverage data
       uses: actions-rs/grcov@v0.1
       id: coverage
+      #run:
 
